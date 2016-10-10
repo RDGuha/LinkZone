@@ -1,1 +1,3 @@
-/target/
+/LinkZoneFrontEnd/build/
+/LinkZoneFrontEnd/bower_components/
+/LinkZoneBackEnd/target/

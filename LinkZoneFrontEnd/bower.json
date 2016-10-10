@@ -1,0 +1,22 @@
+{
+  "name": "collaboration",
+  "authors": [
+    "'Khozema <khozema.nullwala@gmail.com>"
+  ],
+  "description": "This is the frontend project using angular js",
+  "main": "",
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8"
+  }
+}
