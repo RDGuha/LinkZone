@@ -26,7 +26,7 @@ public class BlogTest {
 		// create a new instance of blog
 		Blog blog = new Blog();		
 		blog.setTitle("This is a new blog!");
-		blog.setContent("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde obcaecati, aspernatur a tempora, ratione atque repellat at dolore sapiente iusto doloribus neque magnam id voluptatum rerum sint sit facere nemo.");
+		blog.setContent("This is my first blog");
 		blog.setCreatedAt(new Date());
 		blog.setStatus("APPROVED");
 		blog.setUserId("USR001");	
@@ -35,7 +35,7 @@ public class BlogTest {
 		
 		Comment comment = new Comment();		
 		comment.setUserId("USR002");
-		comment.setComment("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde obcaecati. Some comment for blog one");
+		comment.setComment("This is comment to blog one");
 		comment.setCommentedAt(new Date());
 		
 		comment.setBlog(blog);		
@@ -44,14 +44,14 @@ public class BlogTest {
 		
 		comment = new Comment();		
 		comment.setUserId("USR003");
-		comment.setComment("Consectetur adipisicing elit. Unde obcaecati. Some comment for blog one");
+		comment.setComment(" Some comment for blog one");
 		comment.setCommentedAt(new Date());
 		comment.setBlog(blog);		
 		commentDAO.saveOrUpdate(comment);
 		
 		blog = new Blog();		
 		blog.setTitle("This is my second blog!");
-		blog.setContent("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde obcaecati, aspernatur a tempora, ratione atque repellat at dolore sapiente iusto doloribus neque magnam id voluptatum rerum sint sit facere nemo.");
+		blog.setContent("This is my second blog.");
 		blog.setCreatedAt(new Date());
 		blog.setStatus("APPROVED");
 		blog.setUserId("USR002");	
