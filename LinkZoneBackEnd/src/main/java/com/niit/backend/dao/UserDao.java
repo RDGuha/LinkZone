@@ -1,18 +1,13 @@
-package com.niit.backend.Dao;
+package com.niit.backend.dao;
 
-import java.util.List;
+import com.niit.backend.entity.Users;
 
-import com.niit.backend.model.User;
+public interface UserDAO {
 
-public interface UserDao {
+	void saveOrUpdateUser(Users user);
 	
-	void saveOrUpdate(User user);
-
-	void editUsers(User user);
-		
-		User get(String user_id);
-		
-		List<User> list();
-		
-		User getUserByUserName(String userName);
+	void deleteUser(String email);
+	
+	Users getUser(String userId);
+	
 }

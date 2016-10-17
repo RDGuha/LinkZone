@@ -1,21 +1,21 @@
-package com.niit.collaboration.dao;
+package com.niit.backend.dao;
 
+import java.util.Date;
 import java.util.List;
 
-import com.niit.collaboration.model.Event;
+import com.niit.backend.entity.Event;
+
+
 
 public interface EventDAO {
-	
-	void saveOrUpdate(Event event);
 
-	void deleteEvent(String event_id);
-
-	Event getEvent(String event_id);
+	void saveOrUpdateEvent(Event event);
 	
-	List <Event> list();
+	void deleteEvent(String eventId);
 	
-	boolean isEventExist(Event event);
+	Event getEvent(String eventId);
 	
-	public Event findByTitle(String eventTitle);
+	List<Event> listEvents();
 	
+	List<Event> listEventByEventAt();
 }

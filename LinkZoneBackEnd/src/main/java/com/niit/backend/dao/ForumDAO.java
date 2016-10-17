@@ -1,17 +1,20 @@
-package com.niit.collaboration.dao;
+package com.niit.backend.dao;
 
 import java.util.List;
 
-import com.niit.collaboration.model.Forum;
+import com.niit.backend.entity.Forum;
+
+
 
 public interface ForumDAO {
-	
+
 	void saveOrUpdateForum(Forum forum);
+
+	void deleteForum(String forumId);
+
+	Forum getForum(String forumId);
+
+	List<Forum> listForums();
 	
-	void delete(String forum_id);
-	
-	Forum getForum(String forum_id);
-	
-	List<Forum> list();
-	
+	List<Forum> listForumByCreatedAt(char status);
 }

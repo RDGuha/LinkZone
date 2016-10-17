@@ -1,58 +1,68 @@
-package com.niit.collaboration.model;
+package com.niit.backend.entity;
 
-import java.util.Date;
-import java.util.UUID;
+import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
-@Component
+import com.niitbackend.utitlity.IdGenerator;
+
+
+
 @Entity
-@Table
+@Component
 public class Event {
 	@Id
-	private String eventid;
-	private String userid;
-	private String event_title;
-	private String event_description;
-	private Date event_created;
-	public String getUserid() {
-		return userid;
+	private String eventId;
+	private String content;
+	private String place;
+	private Timestamp eventAt;
+	private Timestamp postedAt;
+
+	public String getEventId() {
+		return eventId;
 	}
-	public Date getEvent_created() {
-		return event_created;
+
+	public void setEventId(String eventId) {
+		this.eventId = eventId;
 	}
-	public void setEvent_created(Date event_created) {
-		this.event_created = event_created;
+
+	public String getContent() {
+		return content;
 	}
-	public void setUserid(String userid) {
-		this.userid = userid;
+
+	public void setContent(String content) {
+		this.content = content;
 	}
-	public void setUsername(String userid) {
-		this.userid = userid;
+
+	public String getPlace() {
+		return place;
 	}
-	public String getEvent_title() {
-		return event_title;
+
+	public void setPlace(String place) {
+		this.place = place;
 	}
-	public void setEvent_title(String event_title) {
-		this.event_title = event_title;
+
+	public Timestamp getEventAt() {
+		return eventAt;
 	}
-	public String getEvent_description() {
-		return event_description;
+
+	public void setEventAt(Timestamp eventAt) {
+		this.eventAt = eventAt;
 	}
-	public void setEvent_description(String event_description) {
-		this.event_description = event_description;
+
+	public Timestamp getPostedAt() {
+		return postedAt;
 	}
+
+	public void setPostedAt(Timestamp postedAt) {
+		this.postedAt = postedAt;
+	}
+
 	public Event(){
-		this.setEventid("E" + UUID.randomUUID().toString().substring(24).toUpperCase());
+		this.eventId = IdGenerator.generateId("EVN");
 	}
-	public String getEventid() {
-		return eventid;
-	}
-	public void setEventid(String eventid) {
-		this.eventid = eventid;
-	}
+	
 }

@@ -1,55 +1,45 @@
-package com.niit.backend.DaoImpl;
+package com.niit.backend.dao;
 
 import java.util.List;
 
-import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.backend.Dao.UserDao;
-import com.niit.backend.model.User;
-@Repository("userDao")
-public class UserDaoImpl implements UserDao {
+import com.niit.backend.entity.Users;
 
+
+@Repository("UserDAO")
+public class UserDAOImpl implements UserDAO {
 	@Autowired
-	private SessionFactory sessionFactory;
+	SessionFactory sessionFactory;
 
-	
-	@Transactional
-	public void saveOrUpdate(User user) {
-		// TODO Auto-generated method stub
-		sessionFactory.getCurrentSession().saveOrUpdate(user);
-
+	public UserDAOImpl(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
 
 	@Transactional
-	public void editUsers(User user) {
-		// TODO Auto-generated method stub
-
+	public void saveOrUpdateUser(Users user) {
 		sessionFactory.getCurrentSession().saveOrUpdate(user);
 	}
 
 	@Transactional
-	public User get(String user_id) {
-		// TODO Auto-generated method stub
-		
-		return sessionFactory.getCurrentSession().get(User.class, user_id);
+	public void deleteUser(String email) {
+		Users userToDelete = new Users();
+		userToDelete.setEmail(email);
+		sessionFactory.getCurrentSession().delete(userToDelete);
+
 	}
 
 	@Transactional
-	public List<User> list() {
-		// TODO Auto-generated method stub
-		@SuppressWarnings("unchecked")
-		List<User> listUsers= (List<User>) sessionFactory.getCurrentSession()
-		.createCriteria(User.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
-		return listUsers;
-	}
-
-	@Transactional
-	public User getUserByUserName(String userName) {
-		// TODO Auto-generated method stub
+	public Users getUser(String userId) {
+		String hql= "from User where userId=:userId";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql).setParameter("userId",userId);
+		List<Users> gotUser=query.getResultList();
+		if(gotUser!=null && !gotUser.isEmpty())
+			return gotUser.get(0);
 		return null;
 	}
 
